@@ -1,1 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Great+Vibes&family=Alex+Brush&family=Allura&family=Parisienne&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import "tailwindcss";
 
+@theme {
+  --color-calico: #E3C096;
+  --color-calicoDark: #B88645;
+  --color-pastelWhite: #FAF8F6;
+  --color-matteBlack: #171717;
+  --color-alligatorLeather: #4D372A;
+  --color-grayCust: #BEBEBE;
+  --color-lightBlack: #2D2D2D;
+
+  --font-heading: "Playfair Display", "Century Gothic", serif;
+  --font-script: "Pinyon Script", cursive;
+  --font-greatVibes: "Great Vibes", cursive;
+  --font-alexBrush: "Alex Brush", cursive;
+  --font-allura: "Allura", cursive;
+  --font-parisienne: "Parisienne", cursive;
+  --font-body: "Inter", "Featheriest", sans-serif;
+
+  --animate-pulse-periodic: pulse-periodic 5s ease-in-out infinite;
+
+  @keyframes pulse-periodic {
+    0%, 85%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 150, 0); }
+    90% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(227, 192, 150, 0.3); }
+    95% { transform: scale(1); box-shadow: 0 0 0 0 rgba(227, 192, 150, 0); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-pastelWhite text-matteBlack font-body leading-relaxed overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-normal text-matteBlack;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block px-8 py-3 bg-calico text-matteBlack no-underline font-heading font-semibold text-sm tracking-widest uppercase transition-all duration-300 border border-calico cursor-pointer hover:bg-transparent hover:text-calicoDark hover:border-calicoDark hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.985] focus:outline-none focus:ring-4 focus:ring-calico/20;
+  }
+  
+  .btn-outline {
+    @apply inline-block px-8 py-3 bg-transparent text-calicoDark no-underline font-heading font-semibold text-sm tracking-widest uppercase transition-all duration-300 border border-calicoDark cursor-pointer hover:bg-calicoDark hover:text-white hover:-translate-y-[1px] active:translate-y-[1px] active:scale-[0.985] focus:outline-none focus:ring-4 focus:ring-calico/20;
+  }
+  
+  input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"], select, textarea {
+    @apply transition-all duration-[250ms] hover:border-calico focus:border-calico caret-calicoDark focus:placeholder:opacity-40 placeholder:transition-opacity placeholder:duration-[250ms];
+  }
+  
+  .section-padding {
+    @apply py-24;
+  }
+  
+  .script-text {
+    @apply font-script text-calico;
+  }
+}
