@@ -15,21 +15,21 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 const fallbackReels = [
   {
     id: 1,
-    videoSrc: '/images/gallery/Aambay valley decor.mov',
+    videoSrc: '/images/gallery/Aamby valley carnival.mp4',
     likes: '12.4K',
     comments: '342',
     isLocal: true,
   },
   {
     id: 2,
-    videoSrc: '/images/gallery/Aambay valley wedding video .mov',
+    videoSrc: '/images/gallery/Aamby Valley wedding.mp4',
     likes: '8.9K',
     comments: '156',
     isLocal: true,
   },
   {
     id: 3,
-    videoSrc: '/images/gallery/Foram Gunj .mov',
+    videoSrc: '/images/gallery/F&G 3.mp4',
     likes: '15.2K',
     comments: '428',
     isLocal: true,
@@ -41,13 +41,13 @@ app.get('/api/reels', async (req, res) => {
 
   // If cache is valid, return it immediately
   if (cachedReels && lastFetchTime && (now - lastFetchTime < CACHE_DURATION)) {
-    console.log('Returning cached Instagram reels');
+    // Returning cached Instagram reels
     return res.json(cachedReels);
   }
 
   // Otherwise, fetch from RapidAPI
   try {
-    console.log('Fetching fresh Instagram data from RapidAPI...');
+    // Fetching fresh Instagram data from RapidAPI...
     
     // Most Instagram scrapers use /profile or a similar endpoint and take a username
     const options = {
@@ -92,17 +92,17 @@ app.get('/api/reels', async (req, res) => {
     if (parsedReels.length > 0) {
       cachedReels = parsedReels;
       lastFetchTime = now;
-      console.log('Cache updated successfully');
+      // Cache updated successfully
       return res.json(cachedReels);
     } else {
-      console.log('API returned data, but no posts found. Using fallback.');
+      // API returned data, but no posts found. Using fallback.
       return res.json(fallbackReels);
     }
 
   } catch (error) {
     console.error('Error fetching from RapidAPI:', error.message);
     // If the API fails (e.g. limit reached, wrong endpoint), return fallback videos so site doesn't break
-    console.log('Serving fallback local reels');
+    // Serving fallback local reels
     return res.json(fallbackReels);
   }
 });

@@ -1,21 +1,44 @@
-# React + Vite
+# Abhnya - Event Planning App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This is the frontend and backend codebase for the Abhnya Event Planning website.
 
-Currently, two official plugins are available:
+## Prerequisites
+- Node.js
+- npm
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Setup & Environment Variables
 
-## React Compiler
+### Backend
+The backend serves as a proxy to fetch Instagram Reels data and bypass CORS.
+Create a `.env` file in the `backend/` directory with the following variables:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```env
+RAPIDAPI_KEY=your_rapidapi_key_here
+RAPIDAPI_HOST=instagram-looter2.p.rapidapi.com
+PORT=5000
+```
+> **Important**: Do not commit the `.env` file to version control. The RapidAPI key must be kept secret.
 
-## Expanding the Oxlint configuration
+### Frontend
+The frontend is a Vite + React application. It requires the backend to be running to fetch Instagram data.
+If deploying the backend separately, create a `.env` file in the `frontend/` directory (or configure Vercel environment variables) with:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```env
+VITE_API_URL=https://your-backend-url.com
+```
+(If left blank, it defaults to `http://localhost:5000` for local development).
 
+## Running Locally
 
+To run both frontend and backend concurrently from the `frontend/` directory:
+```bash
+npm run dev:all
+```
 
-# for videos
-[hero.mov, showreels & gallery](https://drive.google.com/drive/folders/1Yjp1V8HgjJVNTaX1UoO-J1QzJRKnzOE0?usp=sharing)
+To build for production:
+```bash
+npm run build
+```
+
+## Resources
+- [Hero videos, showreels & gallery](https://drive.google.com/drive/folders/1Yjp1V8HgjJVNTaX1UoO-J1QzJRKnzOE0?usp=sharing)

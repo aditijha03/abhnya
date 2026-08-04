@@ -57,7 +57,7 @@ function App() {
       <Hero onOpenModal={() => setIsConsultationModalOpen(true)} onOpenVideoModal={() => setIsVideoModalOpen(true)} />
       <Stats />
       <Approach />
-      <Gallery onOpenLookbookModal={() => setIsLookbookModalOpen(true)} />
+      <Gallery />
       <InstaReels />
       <Services />
       <Testimonials />

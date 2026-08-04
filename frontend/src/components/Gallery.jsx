@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Play, ArrowRight, X, Image as ImageIcon, Film, Maximize2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, X, Image as ImageIcon, Film, Maximize2, Loader2 } from 'lucide-react';
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
 
 const galleryItems = [
   {
@@ -292,12 +294,50 @@ const galleryItems = [
   }
 ];
 
-const Gallery = ({ onOpenLookbookModal }) => {
+const Gallery = () => {
   const [filter, setFilter] = useState('all');
   const [centeredIndex, setCenteredIndex] = useState(0);
   const [activeMediaIndex, setActiveMediaIndex] = useState(null);
+  const [isDownloading, setIsDownloading] = useState(false);
   const scrollContainerRef = useRef(null);
   const cardRefs = useRef([]);
+
+  const handleDownloadLookbook = async () => {
+    setIsDownloading(true);
+    try {
+      const zip = new JSZip();
+      const folder = zip.folder("Lookbook-Gallery");
+
+      const fetchPromises = galleryItems.map(async (item, index) => {
+        try {
+          const response = await fetch(item.src);
+          const blob = await response.blob();
+          
+          // Extract filename from URL (e.g. '/images/gallery/Y&I 20.jpg' -> 'Y&I 20.jpg')
+          let filename = item.src.split('/').pop();
+          if (!filename) {
+            const extension = item.src.split('.').pop() || (item.type === 'video' ? 'mp4' : 'jpg');
+            filename = `gallery_item_${index}.${extension}`;
+          }
+          // decode in case there are URL-encoded characters like %20
+          filename = decodeURIComponent(filename);
+
+          folder.file(filename, blob);
+        } catch (err) {
+          console.error(`Failed to fetch ${item.src}`, err);
+        }
+      });
+
+      await Promise.all(fetchPromises);
+      const content = await zip.generateAsync({ type: "blob" });
+      saveAs(content, "Lookbook_Gallery.zip");
+    } catch (error) {
+      console.error("Error creating zip file:", error);
+      alert("Failed to download the lookbook. Please try again.");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   const filteredItems = galleryItems.filter(item => {
     if (filter === 'photos') return item.type === 'image';
@@ -603,10 +643,18 @@ const Gallery = ({ onOpenLookbookModal }) => {
             View All Stories <ArrowRight size={16} />
           </a>
           <button
-            onClick={onOpenLookbookModal}
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-calico text-white rounded-md font-heading font-bold uppercase tracking-widest text-xs hover:bg-matteBlack transition-all duration-300 cursor-pointer shadow-lg hover:-translate-y-1"
+            onClick={handleDownloadLookbook}
+            disabled={isDownloading}
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-calico text-white rounded-md font-heading font-bold uppercase tracking-widest text-xs hover:bg-matteBlack transition-all duration-300 cursor-pointer shadow-lg hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
-            Download Our Lookbook
+            {isDownloading ? (
+              <>
+                <Loader2 size={16} className="animate-spin" />
+                Downloading...
+              </>
+            ) : (
+              'Download Our Lookbook'
+            )}
           </button>
         </div>
 

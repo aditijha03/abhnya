@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiInstagram, FiPlay, FiHeart, FiMessageCircle, FiSend } from 'react-icons/fi';
+import { FiInstagram, FiPlay } from 'react-icons/fi';
 import VideoModal from './VideoModal';
 
 const InstaReels = () => {
