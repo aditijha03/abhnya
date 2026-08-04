@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero = ({ onOpenModal, onOpenVideoModal }) => {
   return (
@@ -31,7 +32,12 @@ const Hero = ({ onOpenModal, onOpenVideoModal }) => {
       ></div>
 
       <div className="w-[95%] max-w-[1400px] mx-auto relative z-20">
-        <div className="text-white max-w-[800px] mt-28 md:mt-36 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:drop-shadow-none">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="text-white max-w-[800px] mt-28 md:mt-36 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:drop-shadow-none"
+        >
           <span className="text-sm md:text-base uppercase tracking-[4px] text-calico mb-2 block font-medium">Luxury Wedding Planners</span>
           <h1 className="text-[3.5rem] sm:text-[4rem] leading-[1.1] mb-6 text-white md:text-[5.5rem] lg:text-[6.5rem]">
             Celebrate<br />
@@ -48,7 +54,7 @@ const Hero = ({ onOpenModal, onOpenVideoModal }) => {
               Watch Our Showreel
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

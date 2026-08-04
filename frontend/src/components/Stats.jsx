@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Sparkles, MapPin, Handshake, ShieldCheck } from 'lucide-react';
 
 const Stats = () => {
@@ -24,10 +25,18 @@ const Stats = () => {
   return (
     <section className="bg-matteBlack text-white py-14 border-t border-b border-lightBlack">
       <div className="w-[95%] max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-center">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ staggerChildren: 0.1 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-center"
+        >
           {brandValues.map((item, index) => (
-            <div 
+            <motion.div 
               key={index} 
+              variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}
+              transition={{ duration: 0.5 }}
               className={`flex flex-col items-center justify-center py-6 px-4 border-b border-calico/15 sm:border-b-0 ${
                 index % 2 === 0 ? 'sm:border-r border-calico/15' : ''
               } ${index < 3 ? 'lg:border-r lg:border-calico/15' : 'lg:border-r-0'} ${
@@ -40,9 +49,9 @@ const Stats = () => {
               <h4 className="font-heading text-xs sm:text-sm uppercase tracking-widest text-grayCust font-semibold">
                 {item.title}
               </h4>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

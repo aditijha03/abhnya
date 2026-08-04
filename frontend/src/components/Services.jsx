@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   HeartHandshake, 
   Plane, 
@@ -53,17 +54,28 @@ const Services = () => {
             <span className="w-12 h-px bg-calico block"></span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ staggerChildren: 0.15 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
           {services.map((svc, idx) => (
-            <div key={idx} className="bg-white p-10 text-center border border-calico/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+            <motion.div 
+              key={idx} 
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="bg-white p-10 text-center border border-calico/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            >
               <div className="w-12 h-12 mx-auto mb-5 text-calico flex items-center justify-center">
                 {svc.icon}
               </div>
               <h3 className="text-xl mb-4">{svc.title}</h3>
               <p className="text-lightBlack text-sm">{svc.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         <div className="text-center mt-16">
           <a href="#testimonials" className="inline-flex items-center gap-2 text-calico font-heading font-bold uppercase tracking-widest text-sm hover:text-lightBlack transition-colors duration-300">
             Read Client Love <ArrowRight size={16} />

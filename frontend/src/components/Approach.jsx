@@ -1,11 +1,18 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Approach = () => {
   return (
     <section id="about" className="py-24 bg-pastelWhite overflow-hidden">
       <div className="w-[95%] max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div className="md:pr-10 text-matteBlack">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="md:pr-10 text-matteBlack"
+        >
           <span className="text-xs uppercase tracking-widest text-calico mb-5 block">Our Approach</span>
           <h2 className="text-4xl lg:text-5xl leading-tight mb-8 font-heading text-matteBlack">
             Where Every Detail Tells a <span className="font-greatVibes text-calico block text-5xl lg:text-6xl mt-1 font-normal capitalize">Story.</span>
@@ -16,8 +23,14 @@ const Approach = () => {
           <a href="#services" className="btn-outline inline-flex items-center gap-2">
             Our Process <ArrowRight size={16} />
           </a>
-        </div>
-        <div className="relative grid grid-cols-2 grid-rows-2 gap-4 h-[400px] md:h-[600px] w-full">
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="relative grid grid-cols-2 grid-rows-2 gap-4 h-[400px] md:h-[600px] w-full"
+        >
           <img src="/images/gallery/Y&I 22.jpg" alt="Approach Image 1" className="w-full h-full object-cover rounded-md shadow-lg" />
           <img src="/images/gallery/Y&I 5.jpg" alt="Approach Image 2" className="w-full h-full object-cover object-[center_75%] rounded-md shadow-lg" />
           <img src="/images/gallery/F&G 2.jpg" alt="Approach Image 3" className="w-full h-full object-cover rounded-md shadow-lg" />
@@ -36,7 +49,7 @@ const Approach = () => {
             <circle cx="70" cy="20" r="2" fill="currentColor" />
             <circle cx="100" cy="5" r="3" fill="currentColor" />
           </svg>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

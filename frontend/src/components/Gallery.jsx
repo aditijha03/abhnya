@@ -552,14 +552,16 @@ const Gallery = () => {
                   {/* Media (Video or Image) */}
                   {item.type === 'video' ? (
                     <div className="w-full h-full relative">
-                      <video
-                        ref={(el) => (videoRefs.current[index] = el)}
-                        src={item.src}
-                        className="w-full h-full object-cover"
-                        loop
-                        muted
-                        playsInline
-                      />
+                      {Math.abs(index - centeredIndex) <= 2 && (
+                        <video
+                          ref={(el) => (videoRefs.current[index] = el)}
+                          src={item.src}
+                          className="w-full h-full object-cover"
+                          loop
+                          muted
+                          playsInline
+                        />
+                      )}
                     </div>
                   ) : (
                     <div className="w-full h-full relative">
