@@ -25,8 +25,8 @@ const Approach = () => {
           <svg className="hidden md:block absolute left-[50%] top-[70%] -translate-x-1/2 -translate-y-1/2 w-64 h-64 text-[#c29c6d] opacity-100 pointer-events-none z-10 drop-shadow-md" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.2">
             <path d="M100,200 C90,150 110,100 100,50" />
             <path d="M102,170 C130,160 150,130 140,110 C120,120 105,140 102,170" />
-            <path d="M98,140 C70,130 50,100 60,80 C80,9₀ 95,11₀ 98,14₀" />
-            <path d="M1₀₁,₁₁₀ C₁₃₀,₁₀₀ ₁₄₀,₇₀ ₁₃₀,₅₀ C₁₁₀,₆₀ ₁₀₅,₈₀ ₁₀₁,₁₁₀" />
+            <path d="M98,140 C70,130 50,100 60,80 C80,90 95,110 98,140" />
+            <path d="M101,110 C130,100 140,70 130,50 C110,60 105,80 101,110" />
             <path d="M99,80 C70,70 60,40 70,20 C90,30 95,50 99,80" />
             <path d="M100,50 C115,30 110,10 100,5 C90,10 85,30 100,50" />
             {/* Small floral buds */}
