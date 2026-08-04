@@ -71,13 +71,17 @@ app.get('/api/reels', async (req, res) => {
     const posts = data.items || (data.graphql && data.graphql.user && data.graphql.user.edge_owner_to_timeline_media?.edges) || data.edge_owner_to_timeline_media?.edges || [];
     
     if (posts.length > 0) {
+      const host = req.get('host');
+      const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+      const backendUrl = `${protocol}://${host}`;
+
       parsedReels = posts.slice(0, 3).map((post, index) => {
         const item = post.node || post;
         const rawUrl = item.video_url || item.display_url || item.thumbnail_src;
         return {
           id: item.id || index,
           shortcode: item.shortcode,
-          videoSrc: `http://localhost:5000/api/proxy?url=${encodeURIComponent(rawUrl)}`,
+          videoSrc: `${backendUrl}/api/proxy?url=${encodeURIComponent(rawUrl)}`,
           likes: item.edge_liked_by ? item.edge_liked_by.count : (item.like_count || '1K+'),
           comments: item.edge_media_to_comment ? item.edge_media_to_comment.count : (item.comment_count || '50+'),
           isLocal: false
