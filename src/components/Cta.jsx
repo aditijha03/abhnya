@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Cta = ({ onOpenModal }) => {
   return (
-    <section id="contact" className="bg-[linear-gradient(rgba(23,23,23,0.8),rgba(23,23,23,0.8)),url('/images/gallery/Image-49098.jpg.jpeg')] bg-cover bg-center bg-fixed text-white py-24">
+    <section id="contact" className="bg-cover bg-center bg-fixed text-white py-24" style={{ backgroundImage: "linear-gradient(rgba(23,23,23,0.8), rgba(23,23,23,0.8)), url('/images/gallery/Y&I 21.jpg')" }}>
       <div className="w-[95%] max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
         <div>
           <h2 className="text-4xl text-white mb-4">

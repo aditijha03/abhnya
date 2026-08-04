@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiInstagram, FiFacebook, FiYoutube } from 'react-icons/fi';
+import { FaPinterest } from 'react-icons/fa';
 
 const FloatingSocials = () => {
   return (
@@ -17,7 +18,7 @@ const FloatingSocials = () => {
       </a>
       
       <a 
-        href="https://facebook.com" 
+        href="https://www.facebook.com/profile.php?id=61590043773189" 
         target="_blank" 
         rel="noopener noreferrer"
         className="text-white bg-black/70 backdrop-blur-md p-3 rounded-full hover:bg-calico hover:-translate-x-1 hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300 border border-white/10"
@@ -26,12 +27,21 @@ const FloatingSocials = () => {
       </a>
       
       <a 
-        href="https://youtube.com" 
+        href="https://www.youtube.com/@अbhnyabyASEvents" 
         target="_blank" 
         rel="noopener noreferrer"
         className="text-white bg-black/70 backdrop-blur-md p-3 rounded-full hover:bg-calico hover:-translate-x-1 hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300 border border-white/10"
       >
         <FiYoutube size={22} />
+      </a>
+      
+      <a 
+        href="https://in.pinterest.com/abhnyabyasevents/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-white bg-black/70 backdrop-blur-md p-3 rounded-full hover:bg-calico hover:-translate-x-1 hover:shadow-[0_0_15px_rgba(212,175,55,0.5)] transition-all duration-300 border border-white/10"
+      >
+        <FaPinterest size={22} />
       </a>
 
       {/* Decorative Bottom Line */}

@@ -13,8 +13,10 @@ const LookbookModal = ({ isOpen, onClose }) => {
 
     setStatus('loading');
 
-    // Simulate API call to save email
+    const whatsappUrl = `https://wa.me/917678076137?text=${encodeURIComponent(`Hello Abhnya By AS Events,\n\nI would like to receive the Lookbook.\n\n*Details:*\nEmail: ${email}`)}`;
+
     setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
       setStatus('success');
       
       // Trigger actual download of the lookbook
@@ -34,7 +36,7 @@ const LookbookModal = ({ isOpen, onClose }) => {
         }, 500); // Wait for modal fade out
       }, 3000);
       
-    }, 1200);
+    }, 500);
   };
 
   return (

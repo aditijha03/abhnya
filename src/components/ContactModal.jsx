@@ -45,6 +45,9 @@ const ContactModal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    
     // Inline Email Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -54,8 +57,11 @@ const ContactModal = ({ isOpen, onClose }) => {
     setEmailError('');
     setIsSubmitting(true);
     
-    // Simulate API Sequence: Spinner -> Fade out form -> Slide in success screen
+    const message = `Hello Abhnya By AS Events,\n\nI would like to inquire about your services.\n\n*Details:*\nName: ${data.name || ''}\nEmail: ${email}\nPhone: ${data.phone || ''}\nEvent Date: ${data.date || ''}\n\n*Message:*\n${data.message || ''}`;
+    const whatsappUrl = `https://wa.me/917678076137?text=${encodeURIComponent(message)}`;
+    
     setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
       setIsSubmitting(false);
       setIsFormFadingOut(true);
       
@@ -65,7 +71,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         const modalContent = document.getElementById('contact-modal-content');
         if (modalContent) modalContent.scrollTop = 0;
       }, 300);
-    }, 1000);
+    }, 500);
   };
 
   if (!mounted) return null;
@@ -108,12 +114,13 @@ const ContactModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Name</label>
-                  <input type="text" required disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="John & Jane" />
+                  <input type="text" name="name" required disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="John & Jane" />
                 </div>
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Email</label>
                   <input 
                     type="email" 
+                    name="email"
                     required 
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); if(emailError) setEmailError(''); }}
@@ -128,17 +135,17 @@ const ContactModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Phone</label>
-                  <input type="tel" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="+91 98765 43210" />
+                  <input type="tel" name="phone" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="+91 98765 43210" />
                 </div>
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Event Date</label>
-                  <input type="text" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="DD/MM/YYYY or TBD" />
+                  <input type="text" name="date" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="DD/MM/YYYY or TBD" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Message</label>
-                <textarea rows="3" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors resize-none disabled:opacity-50 input-luxury" placeholder="Tell us a bit about your vision..."></textarea>
+                <textarea name="message" rows="3" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors resize-none disabled:opacity-50 input-luxury" placeholder="Tell us a bit about your vision..."></textarea>
               </div>
 
               <div className="flex flex-col items-center mt-2">

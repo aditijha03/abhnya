@@ -2,152 +2,292 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Play, ArrowRight, X, Image as ImageIcon, Film, Maximize2 } from 'lucide-react';
 
 const galleryItems = [
-  // Interleaved Photos & Videos for a dynamic mixed showcase
-  {
-    id: 'i1',
-    type: 'image',
-    title: 'Floral Entryway Design',
-    category: 'Decor',
-    src: '/images/gallery/Image-2604.jpg.jpeg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i2',
-    type: 'image',
-    title: 'Traditional Sangeet Stage',
-    category: 'Sangeet',
-    src: '/images/gallery/Image-39836.jpg.jpeg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i3',
-    type: 'image',
-    title: 'Royal Mandap Setup',
-    category: 'Decor',
-    src: '/images/gallery/Image-11192.jpg.jpeg',
-    aspect: 'aspect-[4/5]'
-  },
-  // Video 1
   {
     id: 'v1',
     type: 'video',
-    title: 'Aambay Valley Decor Highlights',
-    category: 'Decor',
-    src: '/images/gallery/Aambay valley decor.mov',
+    title: 'Aamby Valley Carnival Extravaganza',
+    category: 'Video',
+    src: '/images/gallery/Aamby valley carnival.mp4',
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i4',
+    id: 'i22',
     type: 'image',
-    title: 'Bridal Suite Details',
-    category: 'Details',
-    src: '/images/gallery/Image-49098.jpg.jpeg',
+    title: 'Yash & Isha - Beautiful Decor',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 20.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
-    id: 'i5',
+    id: 'i12',
     type: 'image',
-    title: 'Luxury Reception Decor',
-    category: 'Reception',
-    src: '/images/gallery/Image-50338.jpg.jpeg',
+    title: 'Yash & Isha - Traditional Attire',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 11.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
-    id: 'i6',
+    id: 'i20',
     type: 'image',
-    title: 'Sunset Ceremonial Setup',
-    category: 'Wedding',
-    src: '/images/gallery/Image-64394.jpg.jpeg',
+    title: 'Yash & Isha - Sparkling Exits',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 19.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
-    id: 'i7',
+    id: 'v5',
+    type: 'video',
+    title: 'Foram & Gunj - The Celebration',
+    category: 'Celebration',
+    src: '/images/gallery/F&G 3.mp4',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'i13',
     type: 'image',
-    title: 'Intricate Table Styling',
-    category: 'Decor',
-    src: '/images/gallery/Image-91656.jpg.jpeg',
+    title: 'Yash & Isha - Family Blessings',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 12.jpg',
     aspect: 'aspect-[4/5]'
   },
-  // Video 2
+  {
+    id: 'i31',
+    type: 'image',
+    title: 'Yash & Isha - Groom Arrival',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 5.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i18',
+    type: 'image',
+    title: 'Yash & Isha - Candid Laughter',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 17.jpg',
+    aspect: 'aspect-[4/5]'
+  },
   {
     id: 'v2',
     type: 'video',
-    title: 'Aambay Valley Grand Wedding',
-    category: 'Wedding',
-    src: '/images/gallery/Aambay valley wedding video .mov',
+    title: 'Aamby Valley Grand Wedding',
+    category: 'Video',
+    src: '/images/gallery/Aamby Valley wedding.mp4',
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i8',
+    id: 'i14',
     type: 'image',
-    title: 'Yash & Isha - Pre-wedding Moment',
+    title: 'Yash & Isha - Reception Glamour',
     category: 'Couple',
-    src: '/images/gallery/Y&I 9.jpg.jpeg',
+    src: '/images/gallery/Y&I 13.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
-    id: 'i9',
+    id: 'i35',
     type: 'image',
-    title: 'Yash & Isha - Vow Ceremony',
+    title: 'Yash & Isha - Sindoor Moment',
     category: 'Couple',
-    src: '/images/gallery/Y&I 10.jpg.jpeg',
+    src: '/images/gallery/Y&I 9.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
     id: 'i10',
     type: 'image',
-    title: 'Yash & Isha - Grand Entrance',
+    title: 'Yash & Isha - Pre-Wedding Romance',
     category: 'Couple',
-    src: '/images/gallery/Y&I 11.jpg.jpeg',
+    src: '/images/gallery/Y&I 1.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
-    id: 'i11',
-    type: 'image',
-    title: 'Yash & Isha - Sacred Pheras',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 12.jpg.jpeg',
-    aspect: 'aspect-[4/5]'
-  },
-  // Video 3
-  {
-    id: 'v3',
+    id: 'v7',
     type: 'video',
-    title: 'Foram & Gunj Celebrations',
-    category: 'Celebration',
-    src: '/images/gallery/Foram Gunj .mov',
+    title: 'Fairmont Mumbai Royal Reception',
+    category: 'Video',
+    src: '/images/gallery/Fairmont Mumbai.mp4',
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i12',
+    id: 'i4',
     type: 'image',
-    title: 'Yash & Isha - Joyful Moments',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 13.jpg.jpeg',
+    title: 'Foram & Gunj - Sacred Vows',
+    category: 'Celebration',
+    src: '/images/gallery/F&G 2.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
-    id: 'i13',
+    id: 'i27',
     type: 'image',
-    title: 'Yash & Isha - Floral Canopy',
+    title: 'Yash & Isha - Celebration Vibes',
     category: 'Couple',
-    src: '/images/gallery/Y&I 15.jpg.jpeg',
+    src: '/images/gallery/Y&I 25.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
-    id: 'i14',
+    id: 'i25',
     type: 'image',
-    title: 'Yash & Isha - Twilight Portrait',
+    title: 'Yash & Isha - Elegant Touches',
     category: 'Couple',
-    src: '/images/gallery/Y&I 16.jpg.jpeg',
+    src: '/images/gallery/Y&I 23.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'v6',
+    type: 'video',
+    title: 'Fairfield Marriott Elegance',
+    category: 'Video',
+    src: '/images/gallery/Fairfield.mp4',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'i16',
+    type: 'image',
+    title: 'Yash & Isha - Cake Cutting',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 15.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i28',
+    type: 'image',
+    title: 'Yash & Isha - A Perfect Ending',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 26.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i30',
+    type: 'image',
+    title: 'Yash & Isha - Bridal Glow',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 4.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'v36',
+    type: 'video',
+    title: 'Yash & Isha - The Main Event',
+    category: 'Couple',
+    src: '/images/gallery/Y&I main.mp4',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'i34',
+    type: 'image',
+    title: 'Yash & Isha - Sacred Pheras',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 8.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i21',
+    type: 'image',
+    title: 'Yash & Isha - Joyful Haldi',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 2.jpg',
     aspect: 'aspect-[4/5]'
   },
   {
     id: 'i15',
     type: 'image',
-    title: 'Yash & Isha - Royal Celebration',
+    title: 'Yash & Isha - First Dance',
     category: 'Couple',
-    src: '/images/gallery/Y&I 17.jpg.jpeg',
+    src: '/images/gallery/Y&I 14.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'v9',
+    type: 'video',
+    title: 'Cinematic Wedding Highlights',
+    category: 'Video',
+    src: '/images/gallery/Video-45042.mp4',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'i24',
+    type: 'image',
+    title: 'Yash & Isha - Table Settings',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 22.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i11',
+    type: 'image',
+    title: 'Yash & Isha - The Mandap Magic',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 10.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i19',
+    type: 'image',
+    title: 'Yash & Isha - Twilight Portraits',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 18.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'v8',
+    type: 'video',
+    title: 'V&Y - A Timeless Union',
+    category: 'Video',
+    src: '/images/gallery/V&Y.mp4',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'i3',
+    type: 'image',
+    title: 'Foram & Gunj - Vibrant Sangeet',
+    category: 'Celebration',
+    src: '/images/gallery/F&G 1.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i29',
+    type: 'image',
+    title: 'Yash & Isha - Mehendi Details',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 3.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i17',
+    type: 'image',
+    title: 'Yash & Isha - Toast to Love',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 16.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i26',
+    type: 'image',
+    title: 'Yash & Isha - Musical Nights',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 24.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i33',
+    type: 'image',
+    title: 'Yash & Isha - Varmala Ceremony',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 7.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i23',
+    type: 'image',
+    title: 'Yash & Isha - Floral Mandap',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 21.jpg',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    id: 'i32',
+    type: 'image',
+    title: 'Yash & Isha - The Grand Entrance',
+    category: 'Couple',
+    src: '/images/gallery/Y&I 6.jpg',
     aspect: 'aspect-[4/5]'
   }
 ];
@@ -415,9 +555,6 @@ const Gallery = ({ onOpenLookbookModal }) => {
                       <span className="text-calico text-xs font-bold uppercase tracking-widest block mb-1">
                         {item.category}
                       </span>
-                      <h3 className="text-white font-heading text-lg sm:text-xl font-medium leading-snug">
-                        {item.title}
-                      </h3>
                       {isCentered && (
                         <p className="text-white/70 text-xs mt-1 animate-fade-in flex items-center gap-1">
                           Click to expand fullscreen
@@ -436,9 +573,6 @@ const Gallery = ({ onOpenLookbookModal }) => {
               <span className="text-calico font-heading text-xs font-bold tracking-widest uppercase">
                 {String(centeredIndex + 1).padStart(2, '0')} / {String(filteredItems.length).padStart(2, '0')}
               </span>
-              <h4 className="font-heading text-base sm:text-lg font-semibold text-matteBlack mt-0.5">
-                {filteredItems[centeredIndex]?.title}
-              </h4>
             </div>
 
             {/* Progress Dots Track */}
@@ -495,9 +629,6 @@ const Gallery = ({ onOpenLookbookModal }) => {
                 <span className="text-calico text-xs font-bold uppercase tracking-widest block">
                   {filteredItems[activeMediaIndex].category} ({activeMediaIndex + 1} / {filteredItems.length})
                 </span>
-                <h3 className="font-heading text-lg sm:text-xl font-medium">
-                  {filteredItems[activeMediaIndex].title}
-                </h3>
               </div>
               <button
                 onClick={() => setActiveMediaIndex(null)}

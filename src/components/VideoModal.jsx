@@ -11,8 +11,9 @@ const VideoModal = ({ isOpen, onClose, videos: propVideos, initialIndex = 0 }) =
   }, [isOpen, initialIndex]);
 
   const defaultVideos = [
-    { src: '/images/nightwedding.mp4', title: 'Night Wedding' },
-    { src: '/images/daywedding.mp4', title: 'Day Wedding' }
+    { src: '/images/gallery/Y&I main.mp4', title: 'Yash & Isha Main' },
+    { src: '/images/gallery/Aamby Valley wedding.mp4', title: 'Aamby Valley Wedding' },
+    { src: '/images/gallery/F&G 3.mp4', title: 'Foram & Gunj Celebrations' }
   ];
 
   const videos = propVideos && propVideos.length > 0 ? propVideos : defaultVideos;

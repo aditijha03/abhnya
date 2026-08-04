@@ -62,6 +62,9 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    
     // Inline Email Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -71,8 +74,11 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     setEmailError('');
     setIsSubmitting(true);
     
-    // Simulate API Sequence: Spinner -> Fade out form -> Slide in success screen
+    const message = `Hello Abhnya By AS Events,\n\nI would like to book a consultation.\n\n*Details:*\nName: ${data.name || ''}\nEmail: ${email}\nPhone: ${data.phone || ''}\nType: ${data.type || ''}\nPreferred Date: ${data.date || ''}\nPreferred Time: ${data.time || ''}\n\n*Additional Details:*\n${data.message || ''}`;
+    const whatsappUrl = `https://wa.me/917678076137?text=${encodeURIComponent(message)}`;
+    
     setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
       setIsSubmitting(false);
       setIsFormFadingOut(true);
       
@@ -82,7 +88,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
         const modalContent = document.getElementById('consultation-modal-content');
         if (modalContent) modalContent.scrollTop = 0;
       }, 300);
-    }, 1000);
+    }, 500);
   };
 
   const minutes = Math.floor(timeLeft / 60);
@@ -132,12 +138,13 @@ const ConsultationModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Name</label>
-                  <input type="text" required disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="John & Jane" />
+                  <input type="text" name="name" required disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="John & Jane" />
                 </div>
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Email</label>
                   <input 
-                    type="email" 
+                    type="email"
+                    name="email" 
                     required 
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); if(emailError) setEmailError(''); }}
@@ -152,12 +159,12 @@ const ConsultationModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Phone</label>
-                  <input type="tel" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="WhatsApp Number" />
+                  <input type="tel" name="phone" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" placeholder="WhatsApp Number" />
                 </div>
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Consultation Type</label>
                   <div className="relative">
-                    <select disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury appearance-none pr-8 cursor-pointer">
+                    <select name="type" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury appearance-none pr-8 cursor-pointer">
                       <option value="virtual">Virtual (Zoom/Meet)</option>
                       <option value="in-person">In-Person Meeting</option>
                       <option value="phone">Phone Call</option>
@@ -170,17 +177,17 @@ const ConsultationModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Preferred Date</label>
-                  <input type="date" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" />
+                  <input type="date" name="date" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" />
                 </div>
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Preferred Time</label>
-                  <input type="time" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" />
+                  <input type="time" name="time" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors disabled:opacity-50 input-luxury" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-[10px] uppercase tracking-widest text-matteBlack mb-1 font-semibold">Additional Details</label>
-                <textarea rows="1" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors resize-none disabled:opacity-50 input-luxury" placeholder="Tell us about your dream celebration..."></textarea>
+                <textarea name="message" rows="1" disabled={isSubmitting} className="w-full bg-transparent border-b border-lightBlack/30 py-1 text-[15px] text-matteBlack focus:outline-none transition-colors resize-none disabled:opacity-50 input-luxury" placeholder="Tell us about your dream celebration..."></textarea>
               </div>
 
               {/* Timer and Price Display */}

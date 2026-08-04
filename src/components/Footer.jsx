@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Globe } from 'lucide-react';
-import { FaInstagram, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaYoutube, FaPinterest } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -16,9 +16,9 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/abhnya_by_as_events" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 text-calico flex items-center justify-center transition-all hover:bg-calico hover:text-matteBlack"><FaInstagram size={18} /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/10 text-calico flex items-center justify-center transition-all hover:bg-calico hover:text-matteBlack"><FaFacebook size={18} /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/10 text-calico flex items-center justify-center transition-all hover:bg-calico hover:text-matteBlack"><FaLinkedin size={18} /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/10 text-calico flex items-center justify-center transition-all hover:bg-calico hover:text-matteBlack"><FaTwitter size={18} /></a>
+              <a href="https://www.facebook.com/profile.php?id=61590043773189" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 text-calico flex items-center justify-center transition-all hover:bg-calico hover:text-matteBlack"><FaFacebook size={18} /></a>
+              <a href="https://www.youtube.com/@अbhnyabyASEvents" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 text-calico flex items-center justify-center transition-all hover:bg-calico hover:text-matteBlack"><FaYoutube size={18} /></a>
+              <a href="https://in.pinterest.com/abhnyabyasevents/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 text-calico flex items-center justify-center transition-all hover:bg-calico hover:text-matteBlack"><FaPinterest size={18} /></a>
             </div>
           </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
           <div>
             <h4 className="text-white text-lg mb-6 tracking-wider font-heading">Get In Touch</h4>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-sm"><Phone size={18} className="text-calico shrink-0" /> +91 98765 43210</li>
+              <li className="flex items-center gap-3 text-sm"><Phone size={18} className="text-calico shrink-0" /> +91 76780 76137</li>
               <li className="flex items-center gap-3 text-sm"><Mail size={18} className="text-calico shrink-0" /> hello@asevents.com</li>
               <li className="flex items-center gap-3 text-sm"><MapPin size={18} className="text-calico shrink-0" /> Mumbai, India</li>
               <li className="flex items-center gap-3 text-sm"><Globe size={18} className="text-calico shrink-0" /> Available for travel worldwide</li>
