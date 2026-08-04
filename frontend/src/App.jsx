@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Sparkles } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -53,6 +54,12 @@ function App() {
 
   return (
     <div className="antialiased relative">
+      <Helmet>
+        <title>अbhnya by AS Events | Luxury Wedding Planners</title>
+        <meta name="description" content="From intimate ceremonies to grand destination weddings, Abhnya by AS Events creates beautifully planned luxury wedding celebrations with personalized planning, elegant décor, and flawless execution." />
+        <meta name="keywords" content="Luxury Wedding Planner, Destination Weddings, Wedding Decor, Premium Event Planning, Abhnya, AS Events" />
+        <link rel="canonical" href="https://abhnya-events.com/" />
+      </Helmet>
       <Navbar onOpenModal={() => setIsModalOpen(true)} />
       <Hero onOpenModal={() => setIsConsultationModalOpen(true)} onOpenVideoModal={() => setIsVideoModalOpen(true)} />
       <Stats />

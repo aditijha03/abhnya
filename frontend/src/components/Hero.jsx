@@ -11,9 +11,11 @@ const Hero = ({ onOpenModal, onOpenVideoModal }) => {
         loop 
         muted 
         playsInline 
+        preload="auto"
+        poster="/images/hero_bg.jpg"
         className="absolute right-0 top-0 w-full md:w-[60%] h-full object-cover object-[70%_center] md:object-center z-0 filter contrast-[1.08] saturate-[1.15] brightness-[1.04] transform-gpu"
       >
-        <source src="/images/hero.mp4" type="video/mp4" />
+        <source src="/images/hero.webm" type="video/webm" />
       </video>
 
       {/* Gradient Overlay for Mobile (Full height dual gradient for maximum text contrast) */}
