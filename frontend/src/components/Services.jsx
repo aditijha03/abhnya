@@ -66,7 +66,7 @@ const Services = () => {
               key={idx} 
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-white p-10 text-center border border-calico/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              className="bg-white p-10 text-center border border-calico/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 active:shadow-2xl active:-translate-y-1 cursor-pointer"
             >
               <div className="w-12 h-12 mx-auto mb-5 text-calico flex items-center justify-center">
                 {svc.icon}

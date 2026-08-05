@@ -32,29 +32,46 @@ const Hero = ({ onOpenModal, onOpenVideoModal }) => {
       ></div>
 
       <div className="w-[95%] max-w-[1400px] mx-auto relative z-20">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="text-white max-w-[800px] mt-28 md:mt-36 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:drop-shadow-none"
-        >
-          <span className="text-sm md:text-base uppercase tracking-[4px] text-calico mb-2 block font-medium">Luxury Wedding Planners</span>
-          <h1 className="text-[3.5rem] sm:text-[4rem] leading-[1.1] mb-6 text-white md:text-[5.5rem] lg:text-[6.5rem]">
+        <div className="text-white max-w-[800px] mt-28 md:mt-36 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] md:drop-shadow-none">
+          <motion.span 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm md:text-base uppercase tracking-[4px] text-calico mb-2 block font-medium"
+          >
+            Luxury Wedding Planners
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-[3.5rem] sm:text-[4rem] leading-[1.1] mb-6 text-white md:text-[5.5rem] lg:text-[6.5rem]"
+          >
             Celebrate<br />
             <span className="font-script text-calico">Your Love Story</span>
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-grayCust mb-12 max-w-[620px] leading-relaxed md:leading-[1.8]">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-base sm:text-lg md:text-xl text-grayCust mb-12 max-w-[620px] leading-relaxed md:leading-[1.8]"
+          >
             From intimate ceremonies to grand destination weddings, we create beautifully planned wedding celebrations with personalized planning, elegant décor, and flawless execution - turning your dream wedding into unforgettable memories.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-5 md:gap-6">
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center gap-5 md:gap-6"
+          >
             <button onClick={onOpenModal} className="btn-primary !px-10 !py-4 md:!px-12 md:!py-4 !text-sm md:!text-[15px] inline-flex items-center gap-3 cursor-pointer w-full sm:w-auto justify-center shadow-lg">
               Book Consultation <ArrowRight size={18} />
             </button>
             <button onClick={onOpenVideoModal} className="px-10 py-4 md:px-12 md:py-4 bg-transparent border border-white/60 text-white font-heading font-semibold uppercase tracking-widest text-sm md:text-[15px] hover:bg-white hover:text-matteBlack transition-all duration-300 inline-flex items-center gap-3 cursor-pointer w-full sm:w-auto justify-center shadow-lg">
               Watch Our Showreel
             </button>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
