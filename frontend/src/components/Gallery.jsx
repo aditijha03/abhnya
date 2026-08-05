@@ -593,16 +593,6 @@ const Gallery = () => {
                       </button>
                     </div>
 
-                    <div>
-                      <span className="text-calico text-xs font-bold uppercase tracking-widest block mb-1">
-                        {item.category}
-                      </span>
-                      {isCentered && (
-                        <p className="text-white/70 text-xs mt-1 animate-fade-in flex items-center gap-1">
-                          Click to expand fullscreen
-                        </p>
-                      )}
-                    </div>
                   </div>
                 </div>
               );
@@ -677,7 +667,7 @@ const Gallery = () => {
             <div className="w-full flex items-center justify-between text-white mb-3 px-2">
               <div>
                 <span className="text-calico text-xs font-bold uppercase tracking-widest block">
-                  {filteredItems[activeMediaIndex].category} ({activeMediaIndex + 1} / {filteredItems.length})
+                  {activeMediaIndex + 1} / {filteredItems.length}
                 </span>
               </div>
               <button

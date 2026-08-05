@@ -3,22 +3,34 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonialsData = [
   {
-    text: "Abhnya by AS Events turned our dream into a reality beyond imagination. Every moment was perfect and effortlessly managed!",
-    name: "Rahul & Meera",
-    venue: "Mumbai • February 2026",
+    text: "An excellent experience working with Abhnya by AS events! The founders are amazing — prompt, professional, and they truly understand their work. They even suggested creative ideas I hadn’t thought of. What sets them apart is the detailing. They look into every single aspect of a project to make sure it’s perfect. They’ve made all my big moments special — from birthdays to my wedding, to my baby shower and my baby’s homecoming. One call and my work is done. I never have to worry because they take care of everything so beautifully. Highly recommend them for any event, big or small!",
+    name: "Prerna Shewani",
+    venue: "",
     image: "/images/avatar_couple_1.jpg"
   },
   {
-    text: "Their attention to detail and flawless execution allowed us to simply enjoy our wedding day without a single worry. Truly phenomenal!",
-    name: "Vikram & Sneha",
-    venue: "Udaipur • November 2025",
+    text: "From the first family meeting to the final bidaai song, every single event was handled so beautifully and seamlessly. Gujarati weddings are full of emotions, traditions, last-minute chaos, and nonstop celebrations — and this team managed it all with so much warmth, professionalism, and attention to detail. From the décor and coordination to guest management and timelines, everything felt effortless for us and our families. What truly stood out was how personally involved they were — it never felt like “just another wedding.” They understood our vision, respected our traditions, and made every function feel special in its own way. So many guests told us how smooth, organised, and stunning everything was. If you’re looking for a team that genuinely cares and knows how to execute a big fat Gujarati wedding perfectly, I’d wholeheartedly recommend them. Forever grateful for making our wedding memories so beautiful ✨",
+    name: "Foram Parmar",
+    venue: "",
     image: "/images/avatar_couple_2.jpg"
   },
   {
-    text: "From the stunning decor to the seamless hospitality, our guests are still raving about the experience. Best decision we made!",
-    name: "Arjun & Priya",
-    venue: "Goa • January 2026",
+    text: "Thanks to Abhinav, Sanya, and the whole team for managing things smoothly 🙏🏻 You did amazingly well ❤️",
+    name: "Shivam Rathi",
+    venue: "",
     image: "/images/avatar_couple_3.jpg"
+  },
+  {
+    text: "Kudos to Abhinav, Sanya and the entire team for making our event a smooth show! We were quite worried initially, especially since things had been finalised at very short notice, but you guys managed everything so well! And even the small inputs at the perfect time were very helpful — Abhinav, thanks for reminding me to send people with Shivam for pag phera 😂 We’re truly happy to have been recommended to your services! And we would definitely do the same 😊",
+    name: "Akanksha Rathi",
+    venue: "",
+    image: "/images/avatar_couple_1.jpg"
+  },
+  {
+    text: "Heartfelt gratitude to Abhinav and Sanya for being truly amazing throughout the wedding celebrations of our daughter Ishika. Your dedication, perfect coordination, and tireless efforts made it possible to manage the entire wedding fest so beautifully. Without you both, this would not have been possible. With sincere thanks and appreciation 🙏",
+    name: "Bhanushali and Gala Family",
+    venue: "",
+    image: "/images/avatar_couple_2.jpg"
   }
 ];
 
