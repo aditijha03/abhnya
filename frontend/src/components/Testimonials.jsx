@@ -9,7 +9,7 @@ const testimonialsData = [
     image: "/images/avatar_couple_1.jpg"
   },
   {
-    text: "From the first family meeting to the final bidaai song, every single event was handled so beautifully and seamlessly. Gujarati weddings are full of emotions, traditions, last-minute chaos, and nonstop celebrations — and this team managed it all with so much warmth, professionalism, and attention to detail. From the décor and coordination to guest management and timelines, everything felt effortless for us and our families. What truly stood out was how personally involved they were — it never felt like “just another wedding.” They understood our vision, respected our traditions, and made every function feel special in its own way. So many guests told us how smooth, organised, and stunning everything was. If you’re looking for a team that genuinely cares and knows how to execute a big fat Gujarati wedding perfectly, I’d wholeheartedly recommend them. Forever grateful for making our wedding memories so beautiful ✨",
+    text: "From the first family meeting to the final bidaai song, every single event was handled so beautifully and seamlessly. Gujarati weddings are full of emotions, traditions, last-minute chaos, and nonstop celebrations — and this team managed it all with so much warmth, professionalism, and attention to detail. From the décor and coordination to guest management and timelines, everything felt effortless for us and our families. What truly stood out was how personally involved they were — it never felt like “just another wedding.” They understood our vision, respected our traditions, and made every function feel special in its own way. So many guests told us how smooth, organised, and stunning everything was. If you're looking for a team that genuinely cares and knows how to execute a big fat Gujarati wedding perfectly, I'd wholeheartedly recommend them. Forever grateful for making our wedding memories so beautiful ✨",
     name: "Foram Parmar",
     venue: "",
     image: "/images/avatar_couple_2.jpg"
@@ -38,13 +38,6 @@ const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
