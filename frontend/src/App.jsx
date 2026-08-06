@@ -7,7 +7,7 @@ import Hero from './components/Hero';
 import Stats from './components/Stats';
 import Approach from './components/Approach';
 import Gallery from './components/Gallery';
-import InstaReels from './components/InstaReels';
+
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Cta from './components/Cta';
@@ -67,7 +67,7 @@ function App() {
       <Stats />
       <Approach />
       <Gallery />
-      <InstaReels />
+
       <Services />
       <Testimonials />
       <Cta onOpenModal={() => setIsConsultationModalOpen(true)} />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonialsData = [
