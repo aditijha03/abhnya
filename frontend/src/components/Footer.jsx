@@ -41,9 +41,21 @@ const Footer = () => {
           <div>
             <h4 className="text-white text-lg mb-6 tracking-wider font-heading">Get In Touch</h4>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-sm"><Phone size={18} className="text-calico shrink-0" /> +91 76780 76137</li>
-              <li className="flex items-center gap-3 text-sm"><Mail size={18} className="text-calico shrink-0" /> hello@asevents.com</li>
-              <li className="flex items-center gap-3 text-sm"><MapPin size={18} className="text-calico shrink-0" /> Mumbai, India</li>
+              <li>
+                <a href="tel:+917678076137" className="flex items-center gap-3 text-sm hover:text-calico transition-colors">
+                  <Phone size={18} className="text-calico shrink-0" /> +91 76780 76137
+                </a>
+              </li>
+              <li>
+                <a href="mailto:abhnyabyasevents@gmail.com" className="flex items-center gap-3 text-sm hover:text-calico transition-colors">
+                  <Mail size={18} className="text-calico shrink-0" /> abhnyabyasevents@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="https://maps.google.com/?q=A+wing,+Aditya+Heritage,+405-406,+Kanti+Nagar,+J+B+Nagar,+Andheri+East,+Mumbai,+Maharashtra+400099" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-calico transition-colors">
+                  <MapPin size={18} className="text-calico shrink-0" /> A wing, Aditya Heritage, 405-406, Kanti Nagar, J B Nagar, Andheri East, Mumbai, Maharashtra 400099
+                </a>
+              </li>
               <li className="flex items-center gap-3 text-sm"><Globe size={18} className="text-calico shrink-0" /> Available for travel worldwide</li>
             </ul>
           </div>

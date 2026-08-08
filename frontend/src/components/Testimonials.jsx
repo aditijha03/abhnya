@@ -121,20 +121,13 @@ const Testimonials = () => {
           </div>
           
           {/* Author / Couple Metadata */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6">
-            <img 
-              src={testimonialsData[currentIndex].image} 
-              alt={testimonialsData[currentIndex].name} 
-              className="w-12 h-12 rounded-full object-cover border-2 border-calico/80 shadow-md" 
-            />
-            <div className="flex flex-col items-start text-left">
-              <span className="text-xs sm:text-sm text-calico tracking-wider uppercase font-heading font-semibold">
-                {testimonialsData[currentIndex].name}
-              </span>
-              <span className="text-[10px] sm:text-xs text-white/50 tracking-widest uppercase mt-0.5">
-                {testimonialsData[currentIndex].venue}
-              </span>
-            </div>
+          <div className="flex flex-col items-center justify-center mt-6">
+            <span className="text-xs sm:text-sm text-calico tracking-wider uppercase font-heading font-semibold text-center">
+              {testimonialsData[currentIndex].name}
+            </span>
+            <span className="text-[10px] sm:text-xs text-white/50 tracking-widest uppercase mt-0.5 text-center">
+              {testimonialsData[currentIndex].venue}
+            </span>
           </div>
 
           {/* Sleek Navigation Controls */}

@@ -77,7 +77,7 @@ const Services = () => {
           ))}
         </motion.div>
         <div className="text-center mt-16">
-          <a href="#testimonials" className="inline-flex items-center gap-2 text-calico font-heading font-bold uppercase tracking-widest text-sm hover:text-lightBlack transition-colors duration-300">
+          <a href="#stories" className="inline-flex items-center gap-2 text-calico font-heading font-bold uppercase tracking-widest text-sm hover:text-lightBlack transition-colors duration-300">
             Read Client Love <ArrowRight size={16} />
           </a>
         </div>

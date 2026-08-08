@@ -634,20 +634,6 @@ const Gallery = () => {
           >
             View All Stories <ArrowRight size={16} />
           </a>
-          <button
-            onClick={handleDownloadLookbook}
-            disabled={isDownloading}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-calico text-white rounded-md font-heading font-bold uppercase tracking-widest text-xs hover:bg-matteBlack transition-all duration-300 cursor-pointer shadow-lg hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-          >
-            {isDownloading ? (
-              <>
-                <Loader2 size={16} className="animate-spin" />
-                Downloading...
-              </>
-            ) : (
-              'Download Our Lookbook'
-            )}
-          </button>
         </div>
 
       </div>
