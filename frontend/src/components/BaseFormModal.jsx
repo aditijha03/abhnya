@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Check, Loader2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const BaseFormModal = ({ 
   isOpen, 
@@ -20,6 +21,7 @@ const BaseFormModal = ({
   const [showSuccessScreen, setShowSuccessScreen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [animating, setAnimating] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpen) {
@@ -49,9 +51,7 @@ const BaseFormModal = ({
       if (success) {
         setIsFormFadingOut(true);
         setTimeout(() => {
-          setShowSuccessScreen(true);
-          const modalContent = document.getElementById('base-modal-content');
-          if (modalContent) modalContent.scrollTop = 0;
+          navigate('/thankyou');
         }, 300);
       }
     });
@@ -86,7 +86,7 @@ const BaseFormModal = ({
         </div>
 
         <div id="base-modal-content" className="p-5 md:p-8 overflow-y-auto flex-1 min-h-0 relative scroll-smooth">
-          <div className={`transition-all duration-300 ${showSuccessScreen ? 'hidden' : 'block'} ${isFormFadingOut ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'}`}>
+          <div className={`transition-all duration-300 ${isFormFadingOut ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'}`}>
             <form className="flex flex-col gap-5" onSubmit={handleFormSubmit}>
               {children}
 
@@ -107,23 +107,6 @@ const BaseFormModal = ({
               </div>
             </form>
           </div>
-
-          {showSuccessScreen && (
-            <div className="flex flex-col items-center justify-center text-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="w-16 h-16 rounded-full bg-[#F8F3EA] shadow-[0_0_20px_rgba(227,192,150,0.35)] flex items-center justify-center mb-6 text-calicoDark animate-in zoom-in-50 duration-500 delay-150 fill-mode-both">
-                <Check size={32} strokeWidth={2.5} />
-              </div>
-              <h3 className="text-3xl font-heading text-matteBlack mb-2">{successTitle}</h3>
-              <p className="text-matteBlack/80 font-semibold mb-6">{successSubtitle}</p>
-              <div className="w-12 h-[1px] bg-calico mb-6 opacity-50"></div>
-              <p className="text-sm text-matteBlack/70 max-w-[85%] mx-auto leading-relaxed mb-10 whitespace-pre-wrap">
-                {successMessage}
-              </p>
-              <button onClick={handleClose} type="button" className="btn-outline w-full sm:w-auto px-10">
-                Return Home
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>
