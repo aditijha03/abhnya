@@ -35,13 +35,18 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     setEmailError('');
     setIsSubmitting(true);
     
-    data.formType = 'Consultation';
+    // Capitalize all keys so they appear nicely in Google Sheets
+    const capitalizedData = {};
+    for (const key in data) {
+      capitalizedData[key.charAt(0).toUpperCase() + key.slice(1)] = data[key];
+    }
+    capitalizedData.formType = 'Consultation';
     
     // Fire and forget fetch to Google Sheets
     fetch('https://script.google.com/macros/s/AKfycbzRGSq3R7ggarpw8CWwIhp6n0f7clTExChV0AwbQJdJ32wAxkUW9fWagLLkPU9W3g_RpA/exec', {
       method: 'POST',
       mode: 'no-cors',
-      body: new URLSearchParams(data),
+      body: new URLSearchParams(capitalizedData),
     }).catch(error => console.error('Error submitting to Google Sheets:', error));
     
     const message = `Hello Abhnya By AS Events,\n\nI would like to book a consultation.\n\n*Details:*\nName: ${data.name || ''}\nEmail: ${email}\nPhone: ${data.phone || ''}\nType: ${data.type || ''}\nPreferred Date: ${data.date || ''}\nPreferred Time: ${data.time || ''}\n\n*Additional Details:*\n${data.message || ''}`;
