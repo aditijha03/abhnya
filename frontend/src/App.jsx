@@ -16,7 +16,6 @@ import ContactModal from './components/ContactModal';
 import ConsultationModal from './components/ConsultationModal';
 import PlanningModal from './components/PlanningModal';
 import VideoModal from './components/VideoModal';
-import LookbookModal from './components/LookbookModal';
 import FloatingSocials from './components/FloatingSocials';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [isPlanningModalOpen, setIsPlanningModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [isLookbookModalOpen, setIsLookbookModalOpen] = useState(false);
 
   const hasAutoOpened = useRef(false);
 
@@ -91,7 +89,6 @@ function App() {
       <ConsultationModal isOpen={isConsultationModalOpen} onClose={() => setIsConsultationModalOpen(false)} />
       <PlanningModal isOpen={isPlanningModalOpen} onClose={() => setIsPlanningModalOpen(false)} />
       <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} />
-        <LookbookModal isOpen={isLookbookModalOpen} onClose={() => setIsLookbookModalOpen(false)} />
       </div>
     </ReactLenis>
   );

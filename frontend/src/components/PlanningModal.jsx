@@ -20,6 +20,15 @@ const PlanningModal = ({ isOpen, onClose }) => {
     setEmailError('');
     setIsSubmitting(true);
     
+    data.formType = 'Planning';
+    
+    // Fire and forget fetch to Google Sheets
+    fetch('https://script.google.com/macros/s/AKfycbzRGSq3R7ggarpw8CWwIhp6n0f7clTExChV0AwbQJdJ32wAxkUW9fWagLLkPU9W3g_RpA/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams(data),
+    }).catch(error => console.error('Error submitting to Google Sheets:', error));
+    
     const message = `Hello Abhnya By AS Events,\n\nI would like to start planning an event.\n\n*Details:*\nName: ${data.name || ''}\nEmail: ${email}\nPhone: ${data.phone || ''}\nEvent Type: ${data.type || ''}\nGuests: ${data.guests || ''}\nBudget: ${data.budget || ''}\nLocation: ${data.location || ''}\n\n*Vision:*\n${data.message || ''}`;
     const whatsappUrl = `https://wa.me/917678076137?text=${encodeURIComponent(message)}`;
     
