@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, X, Image as ImageIcon, Film, Maximize2, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, X, Film, Maximize2, Loader2 } from 'lucide-react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
@@ -13,60 +13,12 @@ const galleryItems = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i22',
-    type: 'image',
-    title: 'Yash & Isha - Beautiful Decor',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 20.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i12',
-    type: 'image',
-    title: 'Yash & Isha - Traditional Attire',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 11.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i20',
-    type: 'image',
-    title: 'Yash & Isha - Sparkling Exits',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 19.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
     id: 'v5',
     type: 'video',
     title: 'Foram & Gunj - The Celebration',
     category: 'Celebration',
     src: '/images/gallery/F&G 3.mp4',
     aspect: 'aspect-[9/16]'
-  },
-  {
-    id: 'i13',
-    type: 'image',
-    title: 'Yash & Isha - Family Blessings',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 12.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i31',
-    type: 'image',
-    title: 'Yash & Isha - Groom Arrival',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 5.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i18',
-    type: 'image',
-    title: 'Yash & Isha - Candid Laughter',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 17.jpg',
-    aspect: 'aspect-[4/5]'
   },
   {
     id: 'v2',
@@ -77,60 +29,12 @@ const galleryItems = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i14',
-    type: 'image',
-    title: 'Yash & Isha - Reception Glamour',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 13.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i35',
-    type: 'image',
-    title: 'Yash & Isha - Sindoor Moment',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 9.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i10',
-    type: 'image',
-    title: 'Yash & Isha - Pre-Wedding Romance',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 1.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
     id: 'v7',
     type: 'video',
     title: 'Fairmont Mumbai Royal Reception',
     category: 'Video',
     src: '/images/gallery/Fairmont Mumbai.mp4',
     aspect: 'aspect-[9/16]'
-  },
-  {
-    id: 'i4',
-    type: 'image',
-    title: 'Foram & Gunj - Sacred Vows',
-    category: 'Celebration',
-    src: '/images/gallery/F&G 2.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i27',
-    type: 'image',
-    title: 'Yash & Isha - Celebration Vibes',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 25.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i25',
-    type: 'image',
-    title: 'Yash & Isha - Elegant Touches',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 23.jpg',
-    aspect: 'aspect-[4/5]'
   },
   {
     id: 'v6',
@@ -141,60 +45,12 @@ const galleryItems = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i16',
-    type: 'image',
-    title: 'Yash & Isha - Cake Cutting',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 15.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i28',
-    type: 'image',
-    title: 'Yash & Isha - A Perfect Ending',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 26.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i30',
-    type: 'image',
-    title: 'Yash & Isha - Bridal Glow',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 4.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
     id: 'v36',
     type: 'video',
     title: 'Yash & Isha - The Main Event',
     category: 'Couple',
     src: '/images/gallery/Y&I main.mp4',
     aspect: 'aspect-[9/16]'
-  },
-  {
-    id: 'i34',
-    type: 'image',
-    title: 'Yash & Isha - Sacred Pheras',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 8.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i21',
-    type: 'image',
-    title: 'Yash & Isha - Joyful Haldi',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 2.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i15',
-    type: 'image',
-    title: 'Yash & Isha - First Dance',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 14.jpg',
-    aspect: 'aspect-[4/5]'
   },
   {
     id: 'v9',
@@ -205,30 +61,6 @@ const galleryItems = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i24',
-    type: 'image',
-    title: 'Yash & Isha - Table Settings',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 22.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i11',
-    type: 'image',
-    title: 'Yash & Isha - The Mandap Magic',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 10.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
-    id: 'i19',
-    type: 'image',
-    title: 'Yash & Isha - Twilight Portraits',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 18.jpg',
-    aspect: 'aspect-[4/5]'
-  },
-  {
     id: 'v8',
     type: 'video',
     title: 'V&Y - A Timeless Union',
@@ -237,65 +69,185 @@ const galleryItems = [
     aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i3',
-    type: 'image',
-    title: 'Foram & Gunj - Vibrant Sangeet',
-    category: 'Celebration',
-    src: '/images/gallery/F&G 1.jpg',
-    aspect: 'aspect-[4/5]'
+    id: 'new_v_0',
+    type: 'video',
+    title: 'F&G 6',
+    category: 'Video',
+    src: '/images/gallery/videos/F&G 6.mp4',
+    aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i29',
-    type: 'image',
-    title: 'Yash & Isha - Mehendi Details',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 3.jpg',
-    aspect: 'aspect-[4/5]'
+    id: 'new_v_1',
+    type: 'video',
+    title: 'F&G 7',
+    category: 'Video',
+    src: '/images/gallery/videos/F&G 7.mp4',
+    aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i17',
-    type: 'image',
-    title: 'Yash & Isha - Toast to Love',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 16.jpg',
-    aspect: 'aspect-[4/5]'
+    id: 'new_v_2',
+    type: 'video',
+    title: 'IMG_0561',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_0561.mov',
+    aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i26',
-    type: 'image',
-    title: 'Yash & Isha - Musical Nights',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 24.jpg',
-    aspect: 'aspect-[4/5]'
+    id: 'new_v_3',
+    type: 'video',
+    title: 'IMG_1667',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_1667.mov',
+    aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i33',
-    type: 'image',
-    title: 'Yash & Isha - Varmala Ceremony',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 7.jpg',
-    aspect: 'aspect-[4/5]'
+    id: 'new_v_4',
+    type: 'video',
+    title: 'IMG_1868',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_1868.mov',
+    aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i23',
-    type: 'image',
-    title: 'Yash & Isha - Floral Mandap',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 21.jpg',
-    aspect: 'aspect-[4/5]'
+    id: 'new_v_5',
+    type: 'video',
+    title: 'IMG_1946',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_1946.mov',
+    aspect: 'aspect-[9/16]'
   },
   {
-    id: 'i32',
-    type: 'image',
-    title: 'Yash & Isha - The Grand Entrance',
-    category: 'Couple',
-    src: '/images/gallery/Y&I 6.jpg',
-    aspect: 'aspect-[4/5]'
+    id: 'new_v_6',
+    type: 'video',
+    title: 'IMG_5255',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_5255.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_7',
+    type: 'video',
+    title: 'IMG_5269',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_5269.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_8',
+    type: 'video',
+    title: 'IMG_5503',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_5503.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_9',
+    type: 'video',
+    title: 'IMG_5506',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_5506.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_10',
+    type: 'video',
+    title: 'IMG_5507',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_5507.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_11',
+    type: 'video',
+    title: 'IMG_6421',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_6421.webm',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_12',
+    type: 'video',
+    title: 'IMG_6426',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_6426.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_13',
+    type: 'video',
+    title: 'IMG_6540',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_6540.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_14',
+    type: 'video',
+    title: 'IMG_8698',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_8698.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_15',
+    type: 'video',
+    title: 'IMG_8699',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_8699.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_16',
+    type: 'video',
+    title: 'IMG_8914',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_8914.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_17',
+    type: 'video',
+    title: 'IMG_8973',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_8973.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_18',
+    type: 'video',
+    title: 'IMG_8980',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_8980.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_19',
+    type: 'video',
+    title: 'IMG_9003',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_9003.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_20',
+    type: 'video',
+    title: 'IMG_9405',
+    category: 'Video',
+    src: '/images/gallery/videos/IMG_9405.mov',
+    aspect: 'aspect-[9/16]'
+  },
+  {
+    id: 'new_v_21',
+    type: 'video',
+    title: 'Video-45042',
+    category: 'Video',
+    src: '/images/gallery/videos/Video-45042.mp4',
+    aspect: 'aspect-[9/16]'
   }
 ];
 
 const Gallery = () => {
-  const [filter, setFilter] = useState('all');
+  
   const [centeredIndex, setCenteredIndex] = useState(0);
   const [activeMediaIndex, setActiveMediaIndex] = useState(null);
   const [isDownloading, setIsDownloading] = useState(false);
@@ -339,11 +291,7 @@ const Gallery = () => {
     }
   };
 
-  const filteredItems = galleryItems.filter(item => {
-    if (filter === 'photos') return item.type === 'image';
-    if (filter === 'videos') return item.type === 'video';
-    return true;
-  });
+  const filteredItems = galleryItems;
 
   // Center an item by index
   const scrollToIndex = useCallback((index) => {
@@ -392,7 +340,7 @@ const Gallery = () => {
     setTimeout(() => {
       scrollToIndex(0);
     }, 100);
-  }, [filter, scrollToIndex]);
+  }, [scrollToIndex]);
 
   // Initial scroll position
   useEffect(() => {
@@ -450,42 +398,6 @@ const Gallery = () => {
           <p className="text-matteBlack/70 max-w-2xl mx-auto text-sm sm:text-base">
             Explore every highlight in our 3D coverflow showcase.
           </p>
-        </div>
-
-        {/* Category Filters */}
-        <div className="flex items-center justify-center gap-2 mb-10">
-          <div className="flex items-center gap-2 bg-white/80 p-1.5 rounded-full shadow-sm border border-calico/20">
-            <button
-              onClick={() => setFilter('all')}
-              className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                filter === 'all'
-                  ? 'bg-calico text-white shadow-md'
-                  : 'text-matteBlack/70 hover:text-calicoDark'
-              }`}
-            >
-              All ({galleryItems.length})
-            </button>
-            <button
-              onClick={() => setFilter('photos')}
-              className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
-                filter === 'photos'
-                  ? 'bg-calico text-white shadow-md'
-                  : 'text-matteBlack/70 hover:text-calicoDark'
-              }`}
-            >
-              <ImageIcon size={14} /> Photos ({galleryItems.filter(i => i.type === 'image').length})
-            </button>
-            <button
-              onClick={() => setFilter('videos')}
-              className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
-                filter === 'videos'
-                  ? 'bg-calico text-white shadow-md'
-                  : 'text-matteBlack/70 hover:text-calicoDark'
-              }`}
-            >
-              <Film size={14} /> Videos ({galleryItems.filter(i => i.type === 'video').length})
-            </button>
-          </div>
         </div>
 
         {/* 3D Coverflow Single-Row Container */}
