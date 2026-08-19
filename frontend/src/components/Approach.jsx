@@ -31,7 +31,7 @@ const Approach = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative grid grid-cols-2 grid-rows-2 gap-4 h-[400px] md:h-[600px] w-full"
         >
-          <img src="/images/gallery/Y&I 22.jpg" alt="Approach Image 1" className="w-full h-full object-cover rounded-md shadow-lg" />
+          <img src="/images/approach1.jpeg" alt="Approach Image 1" className="w-full h-full object-cover rounded-md shadow-lg" />
           <img src="/images/gallery/Y&I 5.jpg" alt="Approach Image 2" className="w-full h-full object-cover object-[center_75%] rounded-md shadow-lg" />
           <img src="/images/gallery/F&G 2.jpg" alt="Approach Image 3" className="w-full h-full object-cover rounded-md shadow-lg" />
           <img src="/images/IMG_2052.PNG" alt="Approach Image 4" className="w-full h-full object-cover rounded-md shadow-lg" />
