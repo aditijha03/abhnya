@@ -113,7 +113,7 @@ const galleryItems = [
     type: 'video',
     title: 'IMG_1946',
     category: 'Video',
-    src: '/images/gallery/videos/IMG_1946.mov',
+    src: '/images/gallery/videos/IMG_1946.webm',
     aspect: 'aspect-[9/16]'
   },
   {
