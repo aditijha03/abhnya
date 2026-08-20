@@ -73,7 +73,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
               Complete your booking within <span className="font-bold text-calicoDark bg-calicoDark/10 px-2 py-0.5 rounded mx-1 inline-block">{formattedTime}</span> to unlock your complimentary consultation
             </div>
             <div className="flex items-center justify-center gap-2.5 my-1">
-              <span className="line-through decoration-[1.5px] text-matteBlack/70 font-semibold text-[15px]">₹49</span>
+              <span className="line-through decoration-[1.5px] text-matteBlack/70 font-semibold text-[15px]">₹1599</span>
               <span className="font-bold text-[15px] text-calicoDark uppercase tracking-widest">Free</span>
             </div>
             <span className="text-[10px] text-matteBlack/60 uppercase tracking-widest mt-0.5">Limited-time introductory offer</span>
@@ -100,7 +100,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
       }}
       preTitle="Book Your"
       title="Consultation"
-      submitText={isExpired ? '₹49 Consultation' : 'Book Consultation'}
+      submitText={isExpired ? '₹1599 Consultation' : 'Book Consultation'}
       isSubmitting={isSubmitting}
       onSubmit={handleSubmit}
       maxWidth="max-w-[600px]"
